@@ -14,7 +14,14 @@ def parse():
 
     # 你的解析逻辑（示例：从页面提取视频地址）
     try:
-        resp = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        resp = requests.get(url, headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    'Referer': 'https://www.kuaishou.com/',
+    'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+})
         # 这里写你的解析正则
         match = re.search(r'"videoUrl":"([^"]+)"', resp.text)
         if match:
